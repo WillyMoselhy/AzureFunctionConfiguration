@@ -9,6 +9,11 @@ jobs:
         steps:
             - name: Checkout
               uses: actions/checkout@v2
+            - name: Install PSFramework
+              shell: pwsh
+              run: |
+                Install-Module -Name PSFramework
             - name: Run Pester tests
               shell: pwsh
-              run: ./tests/pester.ps1
+              run: |
+                ./tests/pester.ps1
