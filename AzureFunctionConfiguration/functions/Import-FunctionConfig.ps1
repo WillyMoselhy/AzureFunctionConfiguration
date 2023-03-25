@@ -1,10 +1,11 @@
-﻿#Amended from https://github.com/FriedrichWeinmann/Azure.Function.Tools
+﻿
 function Import-FunctionConfig {
 	<#
 	.SYNOPSIS
 		Imports a set of data into a script FunctionConfig variable.
 
 	.DESCRIPTION
+		#Amended from https://github.com/FriedrichWeinmann/Azure.Function.Tools
 		Imports a set of data into a script config variable.
 		Use Get-FunctionConfig to read config settings.
 		Supports both Json and psd1 files, does not resolve any nesting of values.
@@ -13,12 +14,9 @@ function Import-FunctionConfig {
 		@{
     		Parameter Name = @{Required = $false; Type = 'string'; Default = 'SampleDefaultValue' ; Description = 'Sample Parameter Description' }
 		}
-
-	.PARAMETER Path
-		Path to the config file to read
-
 	.EXAMPLE
 		PS C:\> Import-Config -Path ".\FunctionParameters.psd1"
+
 		Loads the FunctionParameters.psd1 file from the folder of the calling file's.
 	#>
 	[CmdletBinding()]

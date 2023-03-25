@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<test-results xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="nunit_schema_2.5.xsd" name="Pester" total="4" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2023-03-25" time="15:31:11">
+  <environment nunit-version="2.5.8.0" cwd="C:\GitDevOps\AzureFunctionConfiguration" machine-name="DESKTOP-K2LN8MJ" user-domain="MIDDLEEAST" clr-version="Unknown" user="wmoselhy" os-version="10.0.25324" platform="Microsoft Windows 11 Enterprise Insider Preview|C:\WINDOWS|\Device\Harddisk0\Partition3" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+  <test-suite type="TestFixture" name="Pester" executed="True" result="Success" success="True" time="0.1619" asserts="0" description="Pester">
+    <results>
+      <test-suite type="TestFixture" name="C:\GitDevOps\AzureFunctionConfiguration\tests\general\Manifest.Tests.ps1" executed="True" result="Success" success="True" time="0.1619" asserts="0" description="C:\GitDevOps\AzureFunctionConfiguration\tests\general\Manifest.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Validating the module manifest" executed="True" result="Success" success="True" time="0.0596" asserts="0" description="Validating the module manifest">
+            <results>
+              <test-suite type="TestFixture" name="Validating the module manifest.Basic resources validation" executed="True" result="Success" success="True" time="0.0382" asserts="0" description="Validating the module manifest.Basic resources validation">
+                <results>
+                  <test-suite type="ParameterizedTest" name="Validating the module manifest.Basic resources validation.Exports no function that isn't also present in the public folder" executed="True" result="Success" success="True" time="0.0092" asserts="0" description="Exports no function that isn't also present in the public folder">
+                    <results>
+                      <test-case description="Exports no function that isn't also present in the public folder" name="Validating the module manifest.Basic resources validation.Exports no function that isn't also present in the public folder(System.Collections.Hashtable,C:\GitDevOps\AzureFunctionConfiguration\AzureFunctionConfiguration\functions\Get-FunctionConfig.ps1 C:\GitDevOps\AzureFunctionConfiguration\AzureFunctionConfiguration\functions\Import-FunctionConfig.ps1)" time="0.0092" asserts="0" success="True" result="Success" executed="True" />
+                    </results>
+                  </test-suite>
+                  <test-suite type="ParameterizedTest" name="Validating the module manifest.Basic resources validation.Exports none of its internal functions" executed="True" result="Success" success="True" time="0.0092" asserts="0" description="Exports none of its internal functions">
+                    <results>
+                      <test-case description="Exports none of its internal functions" name="Validating the module manifest.Basic resources validation.Exports none of its internal functions(&quot;C:\GitDevOps\AzureFunctionConfiguration\AzureFunctionConfiguration&quot;,System.Collections.Hashtable)" time="0.0092" asserts="0" success="True" result="Success" executed="True" />
+                    </results>
+                  </test-suite>
+                  <test-suite type="ParameterizedTest" name="Validating the module manifest.Basic resources validation.Exports all functions in the public folder" executed="True" result="Success" success="True" time="0.0149" asserts="0" description="Exports all functions in the public folder">
+                    <results>
+                      <test-case description="Exports all functions in the public folder" name="Validating the module manifest.Basic resources validation.Exports all functions in the public folder(System.Collections.Hashtable,C:\GitDevOps\AzureFunctionConfiguration\AzureFunctionConfiguration\functions\Get-FunctionConfig.ps1 C:\GitDevOps\AzureFunctionConfiguration\AzureFunctionConfiguration\functions\Import-FunctionConfig.ps1)" time="0.0149" asserts="0" success="True" result="Success" executed="True" />
+                    </results>
+                  </test-suite>
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Validating the module manifest.Individual file validation" executed="True" result="Success" success="True" time="0.0516" asserts="0" description="Validating the module manifest.Individual file validation">
+                <results>
+                  <test-suite type="ParameterizedTest" name="Validating the module manifest.Individual file validation.The root module file exists" executed="True" result="Success" success="True" time="0.0084" asserts="0" description="The root module file exists">
+                    <results>
+                      <test-case description="The root module file exists" name="Validating the module manifest.Individual file validation.The root module file exists(&quot;C:\GitDevOps\AzureFunctionConfiguration\AzureFunctionConfiguration&quot;,System.Collections.Hashtable)" time="0.0084" asserts="0" success="True" result="Success" executed="True" />
+                    </results>
+                  </test-suite>
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>
