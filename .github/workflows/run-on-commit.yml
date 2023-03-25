@@ -25,4 +25,4 @@ jobs:
               run: |
                 ./build/vsts-build.ps1 -ApiKey ${{ secrets.POWERSHELL_GALLERY_API_KEY }} -Autoversion
                 $newVersion = (Find-Module AzureFunctionConfiguration).Version
-                write-psfmessage -Level Verbose -Message "New version: $newVersion"
+                Write-PSFMessage -Level Host -Message "New version: $newVersion"
