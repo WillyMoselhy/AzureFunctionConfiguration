@@ -9,10 +9,10 @@
 	GUID              = '755bf12f-f8bb-418a-b075-1379a79530ca'
 
 	# Author of this module
-	Author            = 'wmoselhy'
+	Author            = 'WMoselhy'
 
 	# Company or vendor of this module
-	CompanyName       = 'MyCompany'
+	CompanyName       = 'WMoselhy'
 
 	# Copyright statement for this module
 	Copyright         = 'Copyright (c) 2023 wmoselhy'
