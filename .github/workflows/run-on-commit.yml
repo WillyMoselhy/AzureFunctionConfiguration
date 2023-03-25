@@ -4,8 +4,11 @@ on:
         branches:
             - main
 jobs:
-    Run-PowerShell-Script:
+    Run-Pester-Tests:
         runs-on: ubuntu-latest
         steps:
-            - run: echo "Hello, world!"
-            - run: echo "😎"
+            - name: Checkout
+              uses: actions/checkout@v2
+            - name: Run Pester tests
+              shell: pwsh
+              run: ./tests/pester.ps1
