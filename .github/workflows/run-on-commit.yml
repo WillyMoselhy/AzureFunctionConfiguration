@@ -1,0 +1,11 @@
+name: Run PowerShell script on commit
+on:
+    push:
+        branches:
+            - main
+jobs:
+    Run-PowerShell-Script:
+        runs-on: windows-latest
+        steps:
+            - run: echo "Hello, world!"
+            - run: echo "😎"

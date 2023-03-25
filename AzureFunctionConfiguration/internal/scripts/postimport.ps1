@@ -13,6 +13,9 @@ $moduleRoot = Split-Path (Split-Path $PSScriptRoot)
 # Load Configurations
 (Get-ChildItem "$moduleRoot\internal\configurations\*.ps1" -ErrorAction Ignore).FullName
 
+# Load variables
+"$moduleRoot\internal\scripts\variables.ps1"
+
 # Load Scriptblocks
 (Get-ChildItem "$moduleRoot\internal\scriptblocks\*.ps1" -ErrorAction Ignore).FullName
 

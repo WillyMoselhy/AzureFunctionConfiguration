@@ -2,22 +2,25 @@
 function Import-FunctionConfig {
 	<#
 	.SYNOPSIS
-		Imports a set of data into a global FunctionConfig variable.
+		Imports a set of data into a script FunctionConfig variable.
 
 	.DESCRIPTION
-		Imports a set of data into a global config variable.
-		Used by other commands for default values.
-		Use Get-ConfigValue to read config settings.
+		Imports a set of data into a script config variable.
+		Use Get-FunctionConfig to read config settings.
 		Supports both Json and psd1 files, does not resolve any nesting of values.
+
+		Sample psd1 file:
+		@{
+    		Parameter Name = @{Required = $false; Type = 'string'; Default = 'SampleDefaultValue' ; Description = 'Sample Parameter Description' }
+		}
 
 	.PARAMETER Path
 		Path to the config file to read
 
 	.EXAMPLE
-		PS C:\> Import-Config -Path "$PSScriptRoot\config.psd1"
-		Loads the config.psd1 file from the folder of the calling file's.
+		PS C:\> Import-Config -Path ".\FunctionParameters.psd1"
+		Loads the FunctionParameters.psd1 file from the folder of the calling file's.
 	#>
-	[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '')]
 	[CmdletBinding()]
 	param (
 		# Path to the config file to read. This can either be a psd1 or json file.
@@ -30,7 +33,7 @@ function Import-FunctionConfig {
 		[switch]
 		$DoNotLogValues,
 
-		# Show SAS keys in output.
+		# Show SAS keys in output. Default is to redact all SAS keys.
 		[Parameter(Mandatory = $false)]
 		[switch]
 		$ShowSASKeys
@@ -40,7 +43,6 @@ function Import-FunctionConfig {
 
 	# Current options are default, or environment variable.
 	# Loop through imported hashtable, and replace any values that are environment variables.
-	$Global:FunctionConfig = @{}
 	foreach ($item in $functionParameters.GetEnumerator()) {
 		Write-PSFMessage -Level Verbose -Message 'Processing parameter: {0}' -StringValues $item.Name
 		# Required parameters should be supplied as environment variables.
@@ -65,7 +67,7 @@ function Import-FunctionConfig {
 				$paramValue = $item.Value.Default
 			}
 		}
-		# Check if value uses the write type.
+		# Check if values use the write type.
 		Write-PSFMessage -Level Verbose -Message 'Parameter {0} should be of type [{1}].' -StringValues $item.Name, $item.Value.Type.Trim()
 		if($item.Value.Type -ne 'Hashtable'){
 			try{
@@ -75,7 +77,7 @@ function Import-FunctionConfig {
 				throw "Parameter $($item.Name) has value '$($paramValue)' is not of type $($item.Value.Type.Trim())."
 			}
 		}
-		else{
+		else{ #Convert any json to hashtable.
 			try{
 				$paramValue = ConvertFrom-Json -InputObject $paramValue -Depth 99 -AsHashtable
 			}
@@ -83,11 +85,11 @@ function Import-FunctionConfig {
 				throw "Parameter $($item.Name) could not be converted from Json to hashtable."
 			}
 		}
-		$Global:FunctionConfig[$item.Name] = $paramValue
+		$script:FunctionConfig[$item.Name] = $paramValue
 	}
 	if(-Not $DoNotLogValues){
 		Write-PSFMessage -Level Host -Message "Function Parameters:"
-		foreach($item in $Global:FunctionConfig.GetEnumerator()){
+		foreach($item in $Script:FunctionConfig.GetEnumerator()){
 			if($item.Value -like "http*?*" -and (-Not $ShowSASKeys)){
 				$logValue = $item.Value -replace '\?.+'," (SAS REDACTED)"
 			}
@@ -101,6 +103,7 @@ function Import-FunctionConfig {
 			}
 
 			Write-PSFMessage -Level Host -Message "{0}: {1}"  -StringValues $item.Name, $logValue
+
 		}
 	}
 }
