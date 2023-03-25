@@ -3,8 +3,10 @@ on:
     push:
         branches:
             - main
+        paths:
+            - 'AzureFunctionConfiguration/**' # Trigger on changes to the AzureFunctionConfiguration module'
 jobs:
-    Run-Pester-Tests:
+    Validate-and-build:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
