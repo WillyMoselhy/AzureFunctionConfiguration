@@ -17,11 +17,16 @@ jobs:
               shell: pwsh
               run: |
                 ./build/vsts-validate.ps1
-    Build-PowerShell-Module
+    Build-PowerShell-Module:
         needs: Run-Pester-Tests
+        runs-on: ubuntu-latest
         steps:
             - name: Checkout
               uses: actions/checkout@v2.7.0
+            - name: Install PSFramework
+              shell: pwsh
+              run: |
+                Install-Module -Name PSFramework -Force -Confirm:$false
             - name: Build PowerShell module
               shell: pwsh
               run: |
