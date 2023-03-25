@@ -5,7 +5,7 @@ on:
             - main
 jobs:
     Run-PowerShell-Script:
-        runs-on: windows-latest
+        runs-on: ubuntu-latest
         steps:
             - run: echo "Hello, world!"
             - run: echo "😎"
