@@ -1,6 +1,6 @@
 # Azure Function Configuration
 This is a PowerShell module for use with PowerShell based Azure Function Apps.
-It manages loading parameters for your function by loading defaults from a file, checking if an environment variable overrides defaults, and validating that parameters are supplied properly.
+It manages loading parameters for your function by loading defaults from a file, check if an environment variable overrides defaults, and validate that parameters are supplied properly.
 
 ## Usage example
 In the profile.ps1 file, you can use `Import-FunctionConfig` and `Get-FunctionConfig` similar to the example below,
