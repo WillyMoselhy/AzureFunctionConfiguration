@@ -1,4 +1,4 @@
-function Get-FunctionConfig {
+﻿function Get-FunctionConfig {
     [CmdletBinding()]
     param (
         [Parameter(Mandatory = $true, Position = 0)]

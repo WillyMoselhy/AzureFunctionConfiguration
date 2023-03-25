@@ -1,4 +1,4 @@
-#Amended from https://github.com/FriedrichWeinmann/Azure.Function.Tools
+﻿#Amended from https://github.com/FriedrichWeinmann/Azure.Function.Tools
 function Import-FunctionConfig {
 	<#
 	.SYNOPSIS

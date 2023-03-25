@@ -1,1 +1,1 @@
-$script:FunctionConfig = @{}
+﻿$script:FunctionConfig = @{}
