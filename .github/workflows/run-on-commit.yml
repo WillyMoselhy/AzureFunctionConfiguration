@@ -12,7 +12,7 @@ jobs:
             - name: Install PSFramework
               shell: pwsh
               run: |
-                Install-Module -Name PSFramework
+                Install-Module -Name PSFramework -Force -Confirm:$false
             - name: Run Pester tests
               shell: pwsh
               run: |
