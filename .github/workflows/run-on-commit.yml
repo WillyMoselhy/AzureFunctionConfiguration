@@ -23,4 +23,5 @@ jobs:
               shell: pwsh
               run: |
                 ./build/vsts-build.ps1 -ApiKey ${{ secrets.POWERSHELL_GALLERY_API_KEY }} -Autoversion
-                Find-Module AzureFunctionConfiguration
+                $newVersion = (Find-Module AzureFunctionConfiguration).Version
+                write-psfmessage -Level Verbose -Message "New version: $newVersion"
